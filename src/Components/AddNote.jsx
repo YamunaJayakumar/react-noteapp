@@ -1,24 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TextField from '@mui/material/TextField';
 
-function AddNote({onAdd}) {
-    const noteref=useRef();
-    const handleaddNote=()=>{
-      const note=noteref.current.value
-      if(!note){
-        alert("Please enter a note before adding!")
-      }
-       onAdd(note)
-       
-       noteref.current.value=''
-       
+function AddNote({ onAdd }) {
+  const noteref = useRef();
+  const handleaddNote = () => {
+    const note = noteref.current.value
+    if (!note) {
+      alert("Please enter a note before adding!")
+      return
     }
-  return ( 
-    <div className="container p-5">
-     <TextField  inputRef={noteref} id="standard-basic" multiline rows={3} label="Add note here" variant="standard" fullWidth />
-     <button className="btn btn-primary" onClick={handleaddNote}>Add note</button>
+    onAdd(note)
+
+    noteref.current.value = ''
+
+  }
+  return (
+    <div className="container   rounded  ">
+      <TextField id="standard-basic" label="enter your note here" variant="standard" inputRef={noteref} sx={{
+        width: '75%',
+        py: 3,
+        borderRadius: '6px',
+        backgroundColor: 'transparent',
+        
+      }} />
+      <button className="btn text-light border mt-3 ms-2 py-3"style={{backgroundColor:'#ff7db1ff'}} onClick={handleaddNote}>Add note</button>
     </div>
-    
+
   )
 }
 

@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import AddNote from './components/AddNote'
 import DisplayNote from './components/DisplayNote'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
 
 function App() {
   
@@ -28,12 +30,18 @@ function App() {
   }
   
   return (
-    <>
-      {/* displaynote-display all notes with a delete symbol when you clcik on it the note deleted  with create note button at top of page */}
-      {/* addnote-in create note a text filed and add button  when add button clicked it should be displayed in the display*/}
-      <AddNote onAdd={addNote}/>
-      <DisplayNote notearray={notearray} deleteNote={deleteNote} />
-    </>
+    
+    <div className=' ' style={{backgroundColor:'#f5f4f4ff'}}>
+      <Header/>
+      
+      <div  className=" mx-auto  p-5"style={{height:'82vh'}}>
+        {/* displaynote-display all notes with a delete symbol when you clcik on it the note deleted  with create note button at top of page */}
+        {/* addnote-in create note a text filed and add button  when add button clicked it should be displayed in the display*/}
+        <AddNote onAdd={addNote}/>
+        <DisplayNote notearray={notearray} deleteNote={deleteNote} />
+      </div>
+      <Footer/>
+    </div>
   )
 }
 
